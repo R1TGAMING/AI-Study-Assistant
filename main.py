@@ -63,7 +63,7 @@ def cleanup():
 
 
 def main():
-
+    st.logo("./images/logo.png", size="large")
     if "checkpointer" not in st.session_state:
         st.session_state.checkpointer = InMemorySaver()
 
@@ -84,7 +84,7 @@ def main():
         checkpointer=st.session_state.checkpointer,
     )
 
-    st.sidebar.title("AI Asisten Belajar")
+    st.sidebar.title("AI Study Assistant")
 
     if "messages" not in st.session_state:
         st.session_state.messages = []
@@ -93,7 +93,7 @@ def main():
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-    uploaded_file = st.sidebar.file_uploader("Upload materi", type=["pdf"])
+    uploaded_file = st.sidebar.file_uploader("Upload PDF", type=["pdf"])
 
     if uploaded_file:
         file_id = f"{uploaded_file.name}_{uploaded_file.size}"
@@ -115,7 +115,7 @@ def main():
                 os.remove(tmp_path)
 
                 st.session_state.processed_file_id = file_id
-                st.sidebar.success(f"Berhasil upload: {uploaded_file.name}")
+                st.sidebar.success(f"Upload Success: {uploaded_file.name}")
 
     if prompt := st.chat_input("What is up?"):
         with st.chat_message("user"):

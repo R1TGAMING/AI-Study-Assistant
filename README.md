@@ -1,4 +1,5 @@
-## AI Study Assistant
+<img src="./images/logo.png" align="center"/>
+<h2 align="center">AI Study Assistant </h2>
 
 Your study assistant with AI. created with Langchain, Streamlit & RAG system. Supported with document like PDFs File.
 
